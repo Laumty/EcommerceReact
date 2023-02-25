@@ -1,20 +1,15 @@
-// ESTILOS EN LINEA
 
-// ESTILOS CSS
-
-// MODULOS DE CSS
 import styles from "./Navbar.module.css";
-
-// IMPORTAR IMAGEN DE SRC
 import CartWidget from "../CartWidget/CartWidget";
+import  Imagen1 from "../../images/logo.png"
 
 const Navbar = () => {
   return (
     <div className={styles.containerNavbar}>
       <img
-        src="https://png.pngtree.com/png-clipart/20211014/ourlarge/pngtree-assassin-ninja-red-eye-game-logo-png-image_3981066.png"
+        src={Imagen1}
         alt=""
-        style={{ width: "5%", objectFit: "contain" }}/>
+        style={{ width: "8%", objectFit: "contain" }}/>
       <h1 className={styles.containerNavbarTitle}>Dangerous Level!</h1>
       <ul className={styles.containerList}>
         <li>Inicio</li>
