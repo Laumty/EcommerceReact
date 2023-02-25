@@ -15,7 +15,7 @@ const Navbar = () => {
         src="https://png.pngtree.com/png-clipart/20211014/ourlarge/pngtree-assassin-ninja-red-eye-game-logo-png-image_3981066.png"
         alt=""
         style={{ width: "5%", objectFit: "contain" }}/>
-      <h1 className={styles.containerNavbarTitle}>Dangerous Level</h1>
+      <h1 className={styles.containerNavbarTitle}>Dangerous Level!</h1>
       <ul className={styles.containerList}>
         <li>Inicio</li>
         <li>Nosotros</li>
