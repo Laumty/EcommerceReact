@@ -43,10 +43,8 @@ const Login = () => {
             <TextField
               type="text"
               label="Ingres su nombre"
-              // name="nombre"
-              onChange={(e) => {
-                setFieldValue("nombre", e.target.value);
-              }}
+              name="nombre"
+              onChange={handleChange}
               variant="outlined"
               fullWidth
               value={values.nombre}
