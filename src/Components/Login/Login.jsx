@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import "./Login.css";
 
 const Login = () => {
-  const { handleSubmit, handleChange, values, setFieldValue, errors } =
+  const { handleSubmit, handleChange, values, errors } =
     useFormik({
       initialValues: {
         nombre: "",
