@@ -45,10 +45,6 @@ const Form = () => {
       return;
     }
 
-    // INSTRUCCION
-    console.log(userData);
-    // axios.post("elendpoint", userData)
-    // axios.patch("elendpoint", { email: userData.email })
   };
 
   return (

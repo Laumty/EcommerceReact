@@ -7,16 +7,6 @@ import * as Yup from "yup";
 import "./Login.css";
 
 const Login = () => {
-  // let valoresIniciales = {
-  //   nombre: "",
-  //   email: "",
-  //   contraseña: ""
-  // }
-
-  // const enviarForm = (data) => {
-  //   console.log(data);
-  // };
-
   const { handleSubmit, handleChange, values, setFieldValue, errors } =
     useFormik({
       initialValues: {
@@ -31,8 +21,7 @@ const Login = () => {
         contraseña: Yup.string().required("Debes ingresar una contraseña"),
       }),
 
-      onSubmit: (data) => {
-        console.log(data);
+      onSubmit: (data) => {;
       },
     });
 
