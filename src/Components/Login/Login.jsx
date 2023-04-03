@@ -6,28 +6,30 @@ import * as Yup from "yup";
 
 import "./Login.css";
 
-const Login = () => {
-  const { handleSubmit, handleChange, values, errors } =
-    useFormik({
-      initialValues: {
-        nombre: "",
-        email: "",
-        contraseña: "",
-      },
+const Login = () =>
+// {
+//   const { handleSubmit, handleChange, values, errors } =
+//     useFormik({
+//       initialValues: {
+//         nombre: "",
+//         email: "",
+//         contraseña: "",
+//       },
 
-      validationSchema: Yup.object({
-        nombre: Yup.string().required("Debes ingresar un nombre"),
-        email: Yup.string().required("Debes ingresar un email"),
-        contraseña: Yup.string().required("Debes ingresar una contraseña"),
-      }),
+//       validationSchema: Yup.object({
+//         nombre: Yup.string().required("Debes ingresar un nombre"),
+//         email: Yup.string().required("Debes ingresar un email"),
+//         contraseña: Yup.string().required("Debes ingresar una contraseña"),
+//       }),
 
-      onSubmit: (data) => {;
-      },
-    });
+//       onSubmit: (data) => {;
+//       },
+    // });
 
-  return (
+  // return (
     <div>
-      <Typography color="primary" variant="h2" align="center">
+    Login
+      {/* <Typography color="primary" variant="h2" align="center">
         Formulario de registro
       </Typography>
 
@@ -84,9 +86,9 @@ const Login = () => {
         <Button type="submit" variant="contained">
           Enviar
         </Button>
-      </form>
+      </form> */}
     </div>
-  );
-};
+//   );
+// };
 
 export default Login;
