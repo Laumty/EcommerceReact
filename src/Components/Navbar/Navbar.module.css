@@ -23,12 +23,3 @@
     color: white;
 
 }
-.navbarItem{
-    list-style: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 7px 10px;
-    border-radius: 10px;
-    background-color: #e1d4c7;
-    text-align: center;
-}

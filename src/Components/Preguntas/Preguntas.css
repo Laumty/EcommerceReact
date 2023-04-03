@@ -1,0 +1,34 @@
+.questionContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    letter-spacing: 1px;
+    font-size: large;
+    padding: 0px 50%;
+    font-weight: bold;
+}
+.questionItems {
+    height: auto;
+    min-width: 1200px;
+    border: 1px solid black;
+    background-color: #d9d9d9;
+    margin: 5px;
+    padding: 10px 10px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.Title {
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    padding-bottom: 40px;
+    font-size: 2.8em;
+    letter-spacing: 0.1em;
+    padding-bottom: 40px;
+}
+.final{
+    margin-bottom: 30px;
+}

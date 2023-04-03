@@ -1,48 +1,59 @@
-// import ProductCard from "../ProductCard/ProductCard";
-
-
-// const ItemListContainer = () => {
-//   return (
-//     <div style={{ display:"flex", flexDirection:"row", gap:"12vh",flexWrap:"wrap", justifyContent:"center", paddingTop:"50px"}}>
-//       <ProductCard title={"Producto 1"} precio={1500} text={"Descripcion generica 1"} />
-//       <ProductCard title={"Producto 2"} precio={2000} text={"Descripcion generica 2"} />
-//       <ProductCard title={"Producto 3"} precio={1800} text={"Descripcion generica 3"} />
-//     </div>
-//   )
-// }
-
-// export default ItemListContainer
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../productsMock";
+
 import ItemList from "../ItemList/ItemList";
+import ClipLoader from "react-spinners/ClipLoader";
+import Category from "../Category/Category";
+import { db } from "../../firebaseConfig";
+
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { categoryName } = useParams();
 
   const [items, setItems] = useState([]);
 
-  const productosFiltrados = products.filter(
-    (elemento) => elemento.category === categoryName
-  );
-
   useEffect(() => {
-    const productList = new Promise((resolve, reject) => {
-      resolve(categoryName ? productosFiltrados : products);
-    });
+    const itemsCollection = collection(db, "products");
 
-    productList
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        console.log(error);
+    let consulta = undefined;
+
+    if (categoryName) {
+      const q = query(itemsCollection, where("category", "==", categoryName));
+      consulta = getDocs(q);
+    } else {
+      consulta = getDocs(itemsCollection);
+    }
+
+    consulta.then((res) => {
+      let products = res.docs.map((product) => {
+        return {
+          ...product.data(),
+          id: product.id,
+        };
       });
+
+      setItems(products);
+    });
   }, [categoryName]);
+
+  if (items.length === 0) {
+    return (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <ClipLoader
+          color={"#7F669D"}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
 
   return (
     <div>
+      <Category />
+
       <ItemList items={items} />
     </div>
   );

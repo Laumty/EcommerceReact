@@ -5,7 +5,6 @@ import  Imagen1 from "../../images/logo.png"
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  let numero = 12;
   return (
     <div className={styles.containerNavbar}>
       <img
@@ -16,12 +15,12 @@ const Navbar = () => {
 
       <ul className={styles.containerList}>
       <Link to="/" > Inicio </Link>
-        <Link to ="/about">Nosotros</Link>
-        <Link to ="/products">Productos</Link>
-        <Link to ="/login">Login</Link>
-        <Link to ="/faq">Preguntas Frecuentes</Link>
+        <Link to ="/Nosotros">Nosotros</Link>
+        <Link to ="/Productos">Productos</Link>
+        <Link to ="/Preguntas">Preguntas Frecuentes</Link>
+        <Link to ="/login" >Login</Link>
       </ul>
-      <CartWidget numero={numero} />
+      <CartWidget />
     </div>
   );
 };

@@ -1,27 +1,46 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styles from "./Category.module.css";
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
+
 
 const Category = () => {
-    return (
-        <div>
-            <ul className={styles.containerList}>
-                <Link to="/" className={styles.categoryItems}>
-                Todas
-                </Link>
-                <Link to="/category/Cuadros" className={styles.categoryItems}>
-                Cuadros
-                </Link>
-                <Link to="/category/Peluches" className={styles.categoryItems}>
-                Peluches
-                </Link>
-                <Link to="/category/Accesorios" className={styles.categoryItems}>
-                Accesorios
-                </Link>
-            </ul>
-        </div>
+    const [categoryList, setCategoryList] = useState([]);
 
-)
-}
+    useEffect(() => {
+      const itemsCollection = collection(db, "categories");
+      getDocs(itemsCollection).then((res) => {
+        let arrayCategories = res.docs.map((category) => {
+          return {
+            ...category.data(),
+            id: category.id,
+          };
+        });
+        setCategoryList(arrayCategories);
+      });
+    }, []);
+    
+  return (
+    <div>
+      <div className={styles.containerNavbar}>
+        <ul className={styles.containerList}>
+          {categoryList.map((category) => {
+            return (
+              <Link
+                key={category.id}
+                to={category.path}
+                className={styles.navbarItem}
+              >
+                {category.title}
+              </Link>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-export default Category
+export default Category;

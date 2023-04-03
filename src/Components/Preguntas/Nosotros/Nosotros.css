@@ -1,0 +1,23 @@
+.aboutText {
+    letter-spacing: 1px;
+    font-size: large;
+    text-align: center;
+    padding: 20px 150px;
+    font-weight: bold;
+    padding: auto;
+    font-size: 1.1em;
+    letter-spacing: 0.1em; }
+    .aboutImg{
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        padding-left: 40%;
+        width: 60%;
+    }
+    h2{
+        text-align: center;
+    }
+    .containerN{
+        width: 100%;
+    }
